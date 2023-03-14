@@ -2,10 +2,8 @@ package config
 
 import (
 	"errors"
-	"fmt"
 	"os"
 	"path/filepath"
-	"sync"
 
 	"github.com/mantoucat/jsjia/utils/file"
 	"github.com/spf13/viper"
@@ -14,17 +12,17 @@ import (
 var (
 	cfg      *viper.Viper
 	FilePath = "conf/application.yml"
-	once     sync.Once
+	// once     sync.Once
 )
 
-func init() {
-	once.Do(func() {
-		err := Init(FilePath)
-		if err != nil {
-			fmt.Println(fmt.Sprintf("err: %s", err))
-		}
-	})
-}
+// func init() {
+// 	once.Do(func() {
+// 		err := Init(FilePath)
+// 		if err != nil {
+// 			fmt.Println(fmt.Sprintf("err: %s", err))
+// 		}
+// 	})
+// }
 
 func Init(filePath ...string) (err error) {
 	if len(filePath) > 0 {
